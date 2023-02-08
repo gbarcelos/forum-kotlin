@@ -2,6 +2,7 @@ package br.com.alura.forumkotlin.controller
 
 import br.com.alura.forumkotlin.dto.AtualizacaoTopicoForm
 import br.com.alura.forumkotlin.dto.NovoTopicoForm
+import br.com.alura.forumkotlin.dto.TopicoPorCategoria
 import br.com.alura.forumkotlin.dto.TopicoView
 import br.com.alura.forumkotlin.service.TopicoService
 import org.springframework.cache.annotation.CacheEvict
@@ -61,6 +62,11 @@ class TopicoController(private val service: TopicoService) {
     @CacheEvict(value= ["topicos"], allEntries = true)
     fun deletar(@PathVariable id: Long) {
         service.deletar(id)
+    }
+
+    @GetMapping("/relatorio")
+    fun relatorio(): List<TopicoPorCategoria> {
+        return service.relatorio()
     }
 
 }

@@ -2,6 +2,7 @@ package br.com.alura.forumkotlin.service
 
 import br.com.alura.forumkotlin.dto.AtualizacaoTopicoForm
 import br.com.alura.forumkotlin.dto.NovoTopicoForm
+import br.com.alura.forumkotlin.dto.TopicoPorCategoria
 import br.com.alura.forumkotlin.dto.TopicoView
 import br.com.alura.forumkotlin.exception.NotFoundException
 import br.com.alura.forumkotlin.mapper.TopicoFormMapper
@@ -58,6 +59,10 @@ class TopicoService(
 
     fun deletar(id: Long) {
         repository.deleteById(id)
+    }
+
+    fun relatorio() : List<TopicoPorCategoria>{
+        return repository.relatorio()
     }
 
 }
