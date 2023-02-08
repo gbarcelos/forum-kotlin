@@ -1,26 +1,14 @@
 package br.com.alura.forumkotlin.service
 
 import br.com.alura.forumkotlin.model.Usuario
+import br.com.alura.forumkotlin.repository.UsuarioRepository
 import org.springframework.stereotype.Service
-import java.util.*
 
 @Service
-class UsuarioService (var usuarios: List<Usuario>) {
-
-    init {
-        val usuario = Usuario(
-                id = 1,
-                nome = "Ana da Silva",
-                email = "ana@email.com.br"
-        )
-        usuarios = Arrays.asList(usuario)
-    }
+class UsuarioService (private val repository: UsuarioRepository) {
 
     fun buscarPorId(id: Long): Usuario {
-        return usuarios.stream().filter({
-            c -> c.id == id
-        }).findFirst().get()
+        return repository.getOne(id)
     }
-
 
 }
