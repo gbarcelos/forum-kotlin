@@ -23,9 +23,12 @@ class SecurityConfiguration(
 
     override fun configure(http: HttpSecurity?) {
         http?.
+        csrf()?.disable()?.
         authorizeRequests()?.
         antMatchers("/topicos")?.hasAuthority("LEITURA_ESCRITA")?.
         antMatchers(HttpMethod.POST,"/login")?.permitAll()?.
+        antMatchers(HttpMethod.GET,"/swagger-ui/*")?.permitAll()?.
+        antMatchers(HttpMethod.GET,"/v3/api-docs/**")?.permitAll()?.
         anyRequest()?.
         authenticated()?.
         and()
