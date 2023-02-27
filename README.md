@@ -7,4 +7,4 @@ Projeto de uma API REST para controle de posts do fórum da Alura executado dura
 | :sparkles: Nome        | **forum-kotlin**
 | :label: Tecnologias | Kotlin, Spring Boot, Spring Data JPA, Spring Security OAuth, Maven
 | :rocket: URL         | TBD
-| :fire: Desafio     | https://www.alura.com.br/formacao-kotlin-spring-boot
+| :fire: Formação     | https://www.alura.com.br/formacao-kotlin-spring-boot
